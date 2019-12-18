@@ -1,0 +1,25 @@
+{
+  "name": "ads-frontend",
+  "version": "1.0.0",
+  "description": "the frontend for ads",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ItsWewin/ADS-Frontend.git"
+  },
+  "author": "wei.wei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ItsWewin/ADS-Frontend/issues"
+  },
+  "homepage": "https://github.com/ItsWewin/ADS-Frontend#readme",
+  "devDependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "webpack": "^4.41.3",
+    "webpack-cli": "^3.3.10"
+  }
+}
