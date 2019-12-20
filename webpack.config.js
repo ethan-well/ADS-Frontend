@@ -1,12 +1,12 @@
 const path = require('path');
-var HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[hash:8].js',
-    publicPath: './',
   },
   module: {
     rules: [
@@ -19,8 +19,12 @@ module.exports = {
       },
     ],
   },
-  plugins: [new HtmlWebpackPlugin({
-    filename: 'index.html',
-    template: 'src/index.html'
-  })]
+  plugins: [
+    new CleanWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      title: "Welcome ADA",
+      filename: 'index.html',
+      template: './src/index.html'
+    })
+  ]
 };

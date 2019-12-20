@@ -7,7 +7,7 @@ export default class HelloReact extends React.Component{
   }
 
   render(){
-    return( <div>Hello ADS</div>);
+    return( <div>Hello ADS!</div>);
   }
 }
 
