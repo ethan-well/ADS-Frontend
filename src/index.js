@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Example from './stateHook'
+import UseEffectExample from './useEffect'
 
 export default class HelloReact extends React.Component{
   constructor(props) {
@@ -7,7 +9,13 @@ export default class HelloReact extends React.Component{
   }
 
   render(){
-    return( <div>Hello ADS!</div>);
+    return( 
+      <div>
+        <Example/>
+        <UseEffectExample/>
+        Hello ADS!
+      </div>
+    );
   }
 }
 
