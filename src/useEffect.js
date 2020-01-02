@@ -5,6 +5,7 @@ function UseEffectExample() {
 
     useEffect(() => {
         document.title = `You clicked ${count} times`;
+        console.log("test use effect!");
     });
 
     return (
