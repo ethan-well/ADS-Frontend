@@ -1,7 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+const axios = require('axios');
 
 function App() {
   const [data, setData] = useState({ hits: [] });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await axios(
+        'https://hn.algolia.com/api/v1/search?query=redux',
+      );
+      setData(result.data)
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <ul>
