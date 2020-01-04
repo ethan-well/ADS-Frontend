@@ -12,22 +12,32 @@ const useHackerNewsApi = (initialUrl, initialData) => {
   });
 
   useEffect(() => {
+    let didCancel = false;
+
     const fetchData = async () => {
       dispatch({ type: 'FETCH_INIT' });
 
       try {
         const result = await Axios(url)
 
-        dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
+        if (!didCancel) {
+          dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
+        }
       } catch (error) {
-        dispatch({ type: 'FETCH_FAILURE' });
+        if (!didCancel) {
+          dispatch({ type: 'FETCH_FAILURE' });
+        }
       }
     };
 
     fetchData();
-  }, [url])
 
-  return [state, setUrl]
+    return () => {
+      didCancel = true;
+    };
+  }, [url]);
+
+  return [state, setUrl];
 }
 
 export default useHackerNewsApi;

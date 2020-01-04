@@ -8,8 +8,6 @@ function App() {
     { hits: [] },
   );
 
-  console.log(data.hits, isError, isLoading);
-
   return (
     <Fragment>
       <form onSubmit={(event) => {
