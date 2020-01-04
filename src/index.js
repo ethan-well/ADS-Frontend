@@ -12,10 +12,7 @@ export default class HelloReact extends React.Component{
   render(){
     return( 
       <div>
-        <Example/>
-        <UseEffectExample/>
         <App/>
-        Hello ADS!
       </div>
     );
   }
