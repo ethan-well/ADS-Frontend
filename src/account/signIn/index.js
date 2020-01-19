@@ -12,7 +12,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Copyright from '../copyRight/copyRight.js';
+import Copyright from '../../copyRight/copyRight.js';
+import * as request from '../../common/request';
 
 const useStyles = makeStyles(theme => ({
   paper: {
@@ -34,6 +35,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+
+
 export default function SignIn() {
   const classes = useStyles();
 
@@ -41,9 +44,17 @@ export default function SignIn() {
   const [password, setPassword] = useState("");
   const [toSubmit, setToSubmit] = useState(false)
 
+  var callBack = (success, response) => {
+    if (success) {
+      console.log(response.data);
+    } else {
+      console.log(response)
+    }
+  }
+
   useEffect(() => {
     if (toSubmit) {
-      console.log("submit!");
+      request.Post("api/v1/login", {}, callBack)();
     }
   }, [toSubmit])
 
