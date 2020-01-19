@@ -12,10 +12,10 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import Copyright from '../../copyRight/copyRight.js';
+import Copyright from '../../copyRight/copyRight';
 import * as request from '../../common/request';
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
   paper: {
     marginTop: theme.spacing(8),
     display: 'flex',
@@ -38,29 +38,29 @@ const useStyles = makeStyles(theme => ({
 export default function SignUp() {
   const classes = useStyles();
 
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [toSubmit, setToSubmit] = useState(false)
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [toSubmit, setToSubmit] = useState(false);
 
-  var callBack = (success, response) => {
+  const callBack = (success, response) => {
     if (success) {
       console.log(response.data);
     } else {
-      console.log(response)
+      console.log(response);
     }
-  }
+  };
 
   useEffect(() => {
     if (toSubmit) {
-      request.Post("api/v1/login", {}, callBack)();
+      request.Post('api/v1/login', {}, callBack)();
     }
-  }, [toSubmit])
+  }, [toSubmit]);
 
   useEffect(() => {
-    if (username != "" && password != "") {
-      setToSubmit(true)
+    if (username !== '' && password !== '') {
+      setToSubmit(true);
     }
-  }, [username, password])
+  }, [username, password]);
 
   return (
     <Container component="main" maxWidth="xs">
@@ -72,9 +72,10 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate
+        <form className={classes.form}
+          noValidate
           onSubmit={(event) => {
-            setToSubmit(true)
+            setToSubmit(true);
             event.preventDefault();
           }}
         >
@@ -89,7 +90,9 @@ export default function SignUp() {
             autoComplete="email"
             autoFocus
             value={username}
-            onChange={(event) => {setUsername(event.target.value)}}
+            onChange={(event) =>{
+              setUsername(event.target.value);
+            }}
           />
           <TextField
             variant="outlined"
@@ -102,7 +105,9 @@ export default function SignUp() {
             id="password"
             autoComplete="current-password"
             value={password}
-            onChange={(event) => {setPassword(event.target.value)}}
+            onChange={(event) => {
+              setPassword(event.target.value);
+            }}
           />
           <TextField
             variant="outlined"
@@ -115,7 +120,9 @@ export default function SignUp() {
             id="password"
             autoComplete="current-password"
             value={password}
-            onChange={(event) => {setPassword(event.target.value)}}
+            onChange={(event) => {
+              setPassword(event.target.value);
+            }}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -132,13 +139,13 @@ export default function SignUp() {
           </Button>
           <Grid container>
             <Grid item xs>
-              <Link href="#" variant="body2">
+              <Link href="/login" variant="body2">
                 Forgot password?
               </Link>
             </Grid>
             <Grid item>
-              <Link href="#" variant="body2">
-                {"Don't have an account? Sign Up"}
+              <Link href="/join" variant="body2">
+                Don't have an account? Sign Up
               </Link>
             </Grid>
           </Grid>
@@ -149,4 +156,4 @@ export default function SignUp() {
       </Box>
     </Container>
   );
-}
+};
