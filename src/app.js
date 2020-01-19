@@ -1,12 +1,22 @@
 import React, { Fragment } from 'react';
 import SignIn from './account/signIn';
-
-function App() {
+import SignUp from './account/signUp';
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+ 
+export default function App() {
   return (
-    <Fragment>
-      <SignIn/>
-    </Fragment>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <SignIn />
+        </Route>
+        <Route exact path="/sigin">
+          <SignIn />
+        </Route>
+        <Route path="/join">
+          <SignUp/>
+        </Route>
+      </Switch>
+    </Router>
   );
 }
-
-export default App;
