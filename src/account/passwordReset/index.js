@@ -33,11 +33,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignUp() {
+export default function PasswordReset() {
   const classes = useStyles();
 
   const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
   const [toSubmit, setToSubmit] = useState(false);
 
   const callBack = (success, response) => {
@@ -55,10 +54,10 @@ export default function SignUp() {
   }, [toSubmit]);
 
   useEffect(() => {
-    if (username !== '' && password !== '') {
+    if (username !== '') {
       setToSubmit(true);
     }
-  }, [username, password]);
+  }, [username]);
 
   return (
     <Container component="main" maxWidth="xs">
@@ -68,7 +67,7 @@ export default function SignUp() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign Up
+          Reset Password
         </Typography>
         <form
           className={classes.form}
@@ -89,24 +88,7 @@ export default function SignUp() {
             autoComplete="email"
             autoFocus
             value={username}
-            onChange={(event) => {
-              setUsername(event.target.value);
-            }}
-          />
-          <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-            value={password}
-            onChange={(event) => {
-              setPassword(event.target.value);
-            }}
+            onChange={(event) => { setUsername(event.target.value); }}
           />
           <Button
             type="submit"
@@ -115,12 +97,17 @@ export default function SignUp() {
             color="primary"
             className={classes.submit}
           >
-            Sign up for ADS
+            Reset Password
           </Button>
           <Grid container>
             <Grid item xs>
               <Link href="/signin" variant="body2">
-                Have an account? Sign In
+                Sign In?
+              </Link>
+            </Grid>
+            <Grid item>
+              <Link href="/join" variant="body2">
+                Don&apos;t have an account? Sign Up
               </Link>
             </Grid>
           </Grid>
