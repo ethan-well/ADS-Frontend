@@ -17,7 +17,7 @@ export function Get(url, dataInQuery = {}, callBack) {
   };
 }
 
-export function Post(url, data={}, callBack) {
+export function Post(url, data = {}, callBack) {
   return async () => {
     try {
       const response = await axios.post(`${conf.api.url}/${url}`, data);

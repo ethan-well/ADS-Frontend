@@ -72,7 +72,8 @@ export default function SignUp() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form}
+        <form
+          className={classes.form}
           noValidate
           onSubmit={(event) => {
             setToSubmit(true);
@@ -90,7 +91,7 @@ export default function SignUp() {
             autoComplete="email"
             autoFocus
             value={username}
-            onChange={(event) =>{
+            onChange={(event) => {
               setUsername(event.target.value);
             }}
           />
@@ -156,4 +157,4 @@ export default function SignUp() {
       </Box>
     </Container>
   );
-};
+}

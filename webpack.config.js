@@ -26,7 +26,7 @@ module.exports = {
     ],
   },
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
+    contentBase: path.join(__dirname, 'dist'),
     compress: true,
     open: true,
     port: 9000,
@@ -35,9 +35,9 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: "Welcome ADA",
+      title: 'Welcome ADA',
       filename: 'index.html',
-      template: './src/index.html'
+      template: './src/index.html',
     }),
-  ]
+  ],
 };

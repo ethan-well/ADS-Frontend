@@ -72,7 +72,8 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form}
+        <form
+          className={classes.form}
           noValidate
           onSubmit={(event) => {
             setToSubmit(true);
@@ -126,7 +127,7 @@ export default function SignIn() {
             </Grid>
             <Grid item>
               <Link href="/join" variant="body2">
-                Don't have an account? Sign Up
+                Don&apos;t have an account? Sign Up
               </Link>
             </Grid>
           </Grid>

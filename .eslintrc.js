@@ -27,5 +27,6 @@ module.exports = {
     "react-hooks/exhaustive-deps": "warn",
     "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/no-unescaped-entities": ["error", {"forbid": [">", "}", '"']}],
   },
 };

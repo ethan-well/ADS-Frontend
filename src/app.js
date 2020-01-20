@@ -14,7 +14,7 @@ export default function App() {
           <SignIn />
         </Route>
         <Route path="/join">
-          <SignUp/>
+          <SignUp />
         </Route>
       </Switch>
     </Router>
