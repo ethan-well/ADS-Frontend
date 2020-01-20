@@ -1,43 +1,22 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import useHackerNewsApi from './customHook';
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import SignIn from './account/signIn';
+import SignUp from './account/signUp';
 
-function App() {
-  const [query, setQuery] = useState('redux');
-  const [{ data, isLoading, isError }, doFetch] = useHackerNewsApi(
-    'https://hn.algolia.com/api/v1/search?query=redux',
-    { hits: [] },
-  );
-
+export default function App() {
   return (
-    <Fragment>
-      <form onSubmit={(event) => {
-          doFetch(`https://hn.algolia.com/api/v1/search?query=${query}`);
-          
-          event.preventDefault();
-      }}>
-        <input
-          type="text"
-          value={query}
-          onChange={event => setQuery(event.target.value)}
-        />
-        <button type="submit">Search</button> 
-      </form>
-
-      {isError && <div>Something went wrong ...</div>}
-
-      {isLoading ? (
-        <div>Loading ...</div>
-      ) : (
-        <ul>
-          {data.hits.map(item => (
-            <li key={item.objectID}>
-              <a href={item.url}>{item.title}</a>
-            </li>
-          ))}
-        </ul>
-      )}
-    </Fragment>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <SignIn />
+        </Route>
+        <Route exact path="/sigin">
+          <SignIn />
+        </Route>
+        <Route path="/join">
+          <SignUp />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
-
-export default App;

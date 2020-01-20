@@ -11,26 +11,33 @@ module.exports = {
   module: {
     rules: [
       {
+        enforce: 'pre',
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'eslint-loader',
+      },
+      {
         test: /\.js$/,
         exclude: /(node_modules)/,
         use: {
-          loader: 'babel-loader'
+          loader: 'babel-loader',
         },
       },
     ],
   },
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
+    contentBase: path.join(__dirname, 'dist'),
     compress: true,
     open: true,
     port: 9000,
+    historyApiFallback: true,
   },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: "Welcome ADA",
+      title: 'Welcome ADA',
       filename: 'index.html',
-      template: './src/index.html'
+      template: './src/index.html',
     }),
-  ]
+  ],
 };
